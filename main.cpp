@@ -12,6 +12,7 @@
 const char *ssid = "Amitoj Singh";
 const char *password = "12345678";
 bool postOnce;
+
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 MFRC522::MIFARE_Key key;  
 MFRC522::StatusCode status; 
@@ -44,7 +45,9 @@ void loop() {
   /* Select one of the cards */
   if ( ! mfrc522.PICC_ReadCardSerial()) {return;}
   /* Read data from the same block */
+    
   //--------------------------------------------------
+    
   Serial.println();
   Serial.println(F("Reading last data from RFID..."));
   ReadDataFromBlock(blockNum, readBlockData);
@@ -61,7 +64,6 @@ void loop() {
     str16[j] = readBlockData[j];
   }
   Serial.println(str16);
-
 
 
     if (postOnce) {
