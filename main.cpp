@@ -3,7 +3,6 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-
 #include "GoogleFormPost.h"
 
 #define FORM_ROOT_URL "https://docs.google.com/forms/d/e/1FAIpQLScIeEk0yyfLJE0MnUDdoK72y34nS4e2t_NQdtnfg7ITc_jFZQ/viewform"
@@ -47,7 +46,6 @@ void loop() {
   /* Read data from the same block */
     
   //--------------------------------------------------
-    
   Serial.println();
   Serial.println(F("Reading last data from RFID..."));
   ReadDataFromBlock(blockNum, readBlockData);
