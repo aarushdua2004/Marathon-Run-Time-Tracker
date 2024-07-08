@@ -3,7 +3,6 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-
 #include "GoogleFormPost.h"
 
 #define FORM_ROOT_URL "https://docs.google.com/forms/d/e/1FAIpQLScIeEk0yyfLJE0MnUDdoK72y34nS4e2t_NQdtnfg7ITc_jFZQ/viewform"
@@ -12,6 +11,7 @@
 const char *ssid = "Amitoj Singh";
 const char *password = "12345678";
 bool postOnce;
+
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 MFRC522::MIFARE_Key key;  
 MFRC522::StatusCode status; 
@@ -44,6 +44,7 @@ void loop() {
   /* Select one of the cards */
   if ( ! mfrc522.PICC_ReadCardSerial()) {return;}
   /* Read data from the same block */
+    
   //--------------------------------------------------
   Serial.println();
   Serial.println(F("Reading last data from RFID..."));
@@ -61,7 +62,6 @@ void loop() {
     str16[j] = readBlockData[j];
   }
   Serial.println(str16);
-
 
 
     if (postOnce) {
